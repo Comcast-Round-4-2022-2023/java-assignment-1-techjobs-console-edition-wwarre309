@@ -98,8 +98,20 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row : allJobs) {
+           for (String key : row.values()) {
+
+               if (key.toLowerCase().contains(value.toLowerCase())) {
+                   jobs.add(row);
+                   break;
+               }
+           }
+
+        }
         // TODO - implement this method
-        return null;
+        return jobs;
     }
 
     /**
